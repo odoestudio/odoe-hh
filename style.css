@@ -1,0 +1,33 @@
+/* Custom styles that complement Tailwind CSS */
+
+/* Set a default aspect ratio for chart containers for better responsive behavior */
+.chart-container {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    min-height: 300px;
+}
+
+/* Style for date picker calendar icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) brightness(100%) sepia(100%) saturate(0%) hue-rotate(240deg);
+    cursor: pointer;
+}
+
+/* Custom scrollbar for a more modern look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937; /* dark-card */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #374151; /* dark-border */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4b5563; 
+}
