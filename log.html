@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Workout - FitTrack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-primary': '#0891b2',
+                        'brand-secondary': '#0e7490',
+                        'dark-bg': '#111827',
+                        'dark-card': '#1f2937',
+                        'dark-border': '#374151',
+                        'light-text': '#f3f4f6',
+                        'medium-text': '#9ca3af',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-light-text font-sans h-full flex">
+
+    <!-- Sidebar Navigation (Desktop) -->
+    <aside id="desktop-nav" class="hidden lg:block w-64 bg-dark-card flex-shrink-0 p-6"></aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto pb-24 lg:pb-8">
+        <div class="max-w-3xl mx-auto">
+            <header class="mb-8">
+                <h1 class="text-3xl font-bold text-white">Log New Workout</h1>
+                <p class="text-medium-text mt-1">Add the details of your latest session.</p>
+            </header>
+
+            <form id="log-form" class="space-y-6 bg-dark-card p-8 rounded-lg shadow-lg">
+                <!-- Workout Name -->
+                <div>
+                    <label for="workout-name" class="block text-sm font-medium text-light-text mb-1">Workout Name</label>
+                    <input type="text" id="workout-name" name="workout-name" placeholder="e.g., Bench Press, Morning Run" class="w-full bg-gray-700 border border-dark-border rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary" required>
+                </div>
+
+                <!-- Workout Type -->
+                <div>
+                    <label for="workout-type" class="block text-sm font-medium text-light-text mb-1">Workout Type</label>
+                    <select id="workout-type" name="workout-type" class="w-full bg-gray-700 border border-dark-border rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary">
+                        <option value="strength">Strength</option>
+                        <option value="cardio">Cardio</option>
+                    </select>
+                </div>
+
+                <!-- Strength Fields -->
+                <div id="strength-fields">
+                    <h3 class="text-lg font-semibold text-white mb-2">Sets</h3>
+                    <div id="sets-container" class="space-y-3"></div>
+                    <button type="button" id="add-set-btn" class="mt-3 text-sm font-semibold text-brand-primary hover:text-brand-secondary"><i class="fas fa-plus mr-2"></i>Add Set</button>
+                </div>
+
+                <!-- Cardio Fields -->
+                <div id="cardio-fields" class="hidden space-y-4">
+                    <div>
+                        <label for="distance" class="block text-sm font-medium text-light-text mb-1">Distance (km)</label>
+                        <input type="number" id="distance" name="distance" step="0.01" placeholder="5.0" class="w-full bg-gray-700 border border-dark-border rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                    <div>
+                        <label for="duration" class="block text-sm font-medium text-light-text mb-1">Duration (minutes)</label>
+                        <input type="number" id="duration" name="duration" step="1" placeholder="30" class="w-full bg-gray-700 border border-dark-border rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                </div>
+
+                <!-- Date -->
+                 <div>
+                    <label for="date" class="block text-sm font-medium text-light-text mb-1">Date</label>
+                    <input type="date" id="date" name="date" class="w-full bg-gray-700 border border-dark-border rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary text-light-text" required>
+                </div>
+
+                <!-- Notes -->
+                <div>
+                    <label for="notes" class="block text-sm font-medium text-light-text mb-1">Notes</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Felt strong today..." class="w-full bg-gray-700 border border-dark-border rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-brand-primary text-white font-bold py-3 px-4 rounded-md hover:bg-brand-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-card focus:ring-brand-primary transition-colors duration-200">Save Workout</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav id="mobile-nav" class="lg:hidden fixed bottom-0 left-0 right-0 bg-dark-card border-t border-dark-border"></nav>
+
+    <a href="https://odoe.studio" target="_blank" class="fixed bottom-5 right-5 bg-brand-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg hover:bg-brand-secondary transition-colors z-50">Made by Odoe</a>
+
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/log.js"></script>
+</body>
+</html>
